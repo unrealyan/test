@@ -1,0 +1,71 @@
+{
+  "title": "美丽的连衣裙",
+  "number": "0010",
+  "brand": "点码科技",
+  "image": "/public/images/img.jpg",
+  "price": "56.5",
+  "color": "红、绿、蓝",
+  "size": "S、M、L",
+  "mapping": [
+    [{
+      "size":"S",
+      "color":"红",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"S",
+      "color":"绿",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"S",
+      "color":"蓝",
+      "number": "99",
+      "input":0
+    }],
+    [{
+      "size":"M",
+      "color":"红",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"M",
+      "color":"绿",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"M",
+      "color":"蓝",
+      "number": "99",
+      "input":0
+    }],
+    [{
+      "size":"L",
+      "color":"红",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"L",
+      "color":"绿",
+      "number": "99",
+      "input":0
+    },
+    {
+      "size":"L",
+      "color":"蓝",
+      "number": "99",
+      "input":0
+    }]
+
+  ],
+  "detail": {
+      "S": [{"red": 99},{"blue": 99},{"green": 99}],
+      "M": [{"red": 99},{"blue": 99},{"green": 99}],
+      "L": [{"red": 99},{"blue": 99},{"green": 99}]
+    }
+}
