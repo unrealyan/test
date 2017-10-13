@@ -8,7 +8,8 @@ export default class Product extends React.Component{
         super(props);
         this.onChange = this.onChange.bind(this);
         this.sum = this.sum.bind(this);
-        this.state = {mapping:[],sum: 0, sumPrice: 10};
+        this.onClick = this.onClick.bind(this);
+        this.state = {mapping:[],sum: 0, sumPrice: 10, buy: false};
     }
     sum(arr) {
         let sum = 0
@@ -33,6 +34,9 @@ export default class Product extends React.Component{
         // let sum = _.sum(newData, (item) => item.input)
         console.log(this.sum(newData))
         this.setState({newData})
+    }
+    onClick() {
+        this.setState({buy: !this.state.buy})
     }
     componentDidMount() {
         this.setState({mapping: ProductList.mapping})
@@ -66,35 +70,40 @@ export default class Product extends React.Component{
                         <span>尺码</span><span>{ProductList.size}</span>
                     </div>
                 </div>
-                <div className="cover">
-                    <div className="product_detail">
-                        <div className="product_buy">
-                            <div>
-                                <span>立即下单</span><span>每单{ProductList.price}</span>
-                            </div>
-                            <div>
-                                <div className="product_table_th">
-                                    <div>尺码</div>
-                                    <div>S</div>
-                                    <div>M</div>
-                                    <div>L</div>
+                {
+                    this.state.buy ? <div className="cover">
+                        <div className="product_detail">
+                            <div className="product_buy">
+                                <div>
+                                    <span>立即下单</span><span>每单{ProductList.price}</span>
                                 </div>
-                                {
-                                    this.state.mapping.map((item,key) => <div className="product_table_tr" key={key}>
-                                        <div>{item[key]["color"]}</div>
-                                        {
-                                            item.map((ite, k) =>
-                                                <input name={key} data-row={key} data-col={k} onChange={this.onChange} key={k} className="product_table_item" type="number" id={ite.number} placeholder={`库存:${ite.number}`} />)
-                                        }
-                                    </div>)
-                                }
-                                <div className="product_result">
-                                    <span>合计</span><span>{this.state.sum}件</span><span>总价</span><span>￥{this.state.sumPrice * this.state.sum}</span>
-                                     <button>立即下单</button>
+                                <div>
+                                    <div className="product_table_th">
+                                        <div>尺码</div>
+                                        <div>S</div>
+                                        <div>M</div>
+                                        <div>L</div>
+                                    </div>
+                                    {
+                                        this.state.mapping.map((item,key) => <div className="product_table_tr" key={key}>
+                                            <div>{item[key]["color"]}</div>
+                                            {
+                                                item.map((ite, k) =>
+                                                    <input name={key} data-row={key} data-col={k} onChange={this.onChange} key={k} className="product_table_item" type="number" id={ite.number} placeholder={`库存:${ite.number}`} />)
+                                            }
+                                        </div>)
+                                    }
+                                    <div className="product_result">
+                                        <span>合计</span><span>{this.state.sum}件</span><span>总价</span><span>￥{this.state.sumPrice * this.state.sum}</span>
+                                        <button>立即下单</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> : null
+                }
+                <div className="button">
+                    <button onClick={this.onClick}>立即购买</button>
                 </div>
             </div>
         )
