@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Project from '../components/product.jsx';
+import Project from './components/product.jsx';
 
 ReactDOM.render(
     <div>
